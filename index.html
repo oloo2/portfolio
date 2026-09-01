@@ -36,12 +36,22 @@
       padding-bottom: 2rem;
     }
 
+    .profile-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 2px solid var(--accent);
+      margin-bottom: 1rem;
+      object-fit: cover;
+    }
+
     h1 { font-size: 2.25rem; font-weight: 800; color: var(--text-main); }
     .subtitle { font-size: 1.25rem; color: var(--accent); margin-top: 0.25rem; font-weight: 600; }
     .bio-lead { margin-top: 1rem; color: var(--text-muted); font-size: 1.05rem; }
 
     .nav-links {
       display: flex;
+      flex-wrap: wrap;
       gap: 1rem;
       margin-top: 1.5rem;
     }
@@ -59,6 +69,18 @@
     }
 
     .btn:hover { border-color: var(--accent); color: var(--accent); }
+
+    .btn-primary {
+      background-color: var(--accent);
+      color: #0f172a;
+      font-weight: 600;
+      border-color: var(--accent);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-hover);
+      color: #ffffff;
+    }
 
     section { margin-bottom: 3rem; }
 
@@ -82,11 +104,20 @@
 
     .card:hover { transform: translateY(-2px); }
 
+    .card-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+      border: 1px solid var(--border);
+    }
+
     .card h3 { font-size: 1.25rem; color: var(--accent); }
     .card .tagline { font-style: italic; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.75rem; }
     .card p { font-size: 0.95rem; margin-bottom: 1rem; }
 
-    .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
     .tag {
       background-color: rgba(56, 189, 248, 0.1);
       color: var(--accent);
@@ -94,6 +125,16 @@
       border-radius: 4px;
       font-size: 0.8rem;
       font-weight: 500;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .btn-sm {
+      padding: 0.35rem 0.75rem;
+      font-size: 0.8rem;
     }
 
     .skills-list {
@@ -109,15 +150,42 @@
       border: 1px solid var(--border);
     }
 
-    .skill-category h4 { color: var(--text-main); margin-bottom: 0.5rem; font-size: 1rem; }
-    .skill-category p { color: var(--text-muted); font-size: 0.88rem; }
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      background-color: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .form-input {
+      background-color: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      padding: 0.75rem;
+      border-radius: 6px;
+      font-family: inherit;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
 
     footer {
       text-align: center;
-      padding-top: 2rem;
-      border-top: 1px solid var(--border);
       color: var(--text-muted);
-      font-size: 0.85rem;
+      font-size: 0.9rem;
+      border-top: 1px solid var(--border);
+      padding-top: 1.5rem;
     }
   </style>
 </head>
@@ -125,13 +193,17 @@
 
   <div class="container">
     <header>
+      <img src="assets/profile.jpg" alt="That Kafeeling" class="profile-avatar" />
       <h1>That Kafeeling</h1>
       <div class="subtitle">AI-Native Product Engineer & Full-Stack Builder</div>
       <p class="bio-lead">
         Building scalable, accessible, and high-impact web applications through clear system architecture, modern product intuition, and AI-assisted workflows.
       </p>
+      
       <div class="nav-links">
+        <a href="assets/resume.pdf" class="btn btn-primary" download>📄 Download Resume</a>
         <a href="https://github.com/oloo2" class="btn" target="_blank">GitHub</a>
+        <a href="https://linkedin.com/in/your-profile" class="btn" target="_blank">LinkedIn</a>
         <a href="mailto:foloo@right2sight.org" class="btn">Email</a>
       </div>
     </header>
@@ -169,7 +241,9 @@
       <h2>Featured Projects</h2>
       <div class="grid">
         
+        <!-- Card 1: DawaPop -->
         <div class="card">
+          <img src="assets/dawapop-preview.png" alt="DawaPop Preview" class="card-img" />
           <h3><a href="https://dawapop.ai.studio" style="color:inherit; text-decoration:none;">DawaPop</a></h3>
           <div class="tagline">AI-Powered Emergency Medication Marketplace</div>
           <p>Designed and built an emergency medication platform connecting patients to critical supplies, reducing drug search times while integrating M-PESA escrow payments and real-time logistical tracking.</p>
@@ -178,9 +252,15 @@
             <span class="tag">M-PESA Integration</span>
             <span class="tag">Real-Time Tracking</span>
           </div>
+          <div class="project-links">
+            <a href="https://dawapop.ai.studio" class="btn btn-sm" target="_blank">🌐 Live Demo</a>
+            <a href="https://github.com/oloo2/dawapop" class="btn btn-sm" target="_blank">💻 Source Code</a>
+          </div>
         </div>
 
+        <!-- Card 2: dadaspace-app -->
         <div class="card">
+          <img src="assets/dadaspace-preview.png" alt="dadaspace-preview" class="card-img" />
           <h3><a href="https://dadaspace.lovable.app" style="color:inherit; text-decoration:none;">dadaspace-app</a></h3>
           <div class="tagline">Accessible Multilingual Community Health Platform</div>
           <p>Developed an accessible life cycle tracking (menstruation, pregnancy, and menopause) web application for women featuring native language audio guidance (Kiswahili, Hausa, Amharic, isiZulu, Yoruba) and privacy-first local data handling.</p>
@@ -189,9 +269,15 @@
             <span class="tag">Multilingual Audio</span>
             <span class="tag">Privacy-First</span>
           </div>
+          <div class="project-links">
+            <a href="https://dadaspace.lovable.app" class="btn btn-sm" target="_blank">🌐 Live Demo</a>
+            <a href="https://github.com/oloo2/dadaspace-app" class="btn btn-sm" target="_blank">💻 Source Code</a>
+          </div>
         </div>
 
+        <!-- Card 3: my-steps -->
         <div class="card">
+          <img src="assets/mysteps-preview.png" alt="my-steps Preview" class="card-img" />
           <h3><a href="https://right2sight.org" style="color:inherit; text-decoration:none;">my-steps</a></h3>
           <div class="tagline">Eye Specialist & Rehabilitation Healthcare Platform</div>
           <p>Full-stack web platform for Right to Sight Center in Kenya featuring online appointment scheduling, optical product catalogs, symptom checkers, and an embedded AI eye care chat assistant.</p>
@@ -200,11 +286,36 @@
             <span class="tag">Healthcare Tech</span>
             <span class="tag">AI Chat Assistant</span>
           </div>
+          <div class="project-links">
+            <a href="https://right2sight.org" class="btn btn-sm" target="_blank">🌐 Live Demo</a>
+            <a href="https://github.com/oloo2/my-steps" class="btn btn-sm" target="_blank">💻 Source Code</a>
+          </div>
         </div>
+
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Get In Touch</h2>
+      <form action="https://formspree.io/f/your-form-id" method="POST" class="contact-form">
+        <div class="form-group">
+          <label for="name" style="font-size:0.9rem; color:var(--text-muted);">Name</label>
+          <input type="text" id="name" name="name" class="form-input" required placeholder="Your name">
+        </div>
+        <div class="form-group">
+          <label for="email" style="font-size:0.9rem; color:var(--text-muted);">Email</label>
+          <input type="email" id="email" name="email" class="form-input" required placeholder="your.email@example.com">
+        </div>
+        <div class="form-group">
+          <label for="message" style="font-size:0.9rem; color:var(--text-muted);">Message</label>
+          <textarea id="message" name="message" rows="4" class="form-input" required placeholder="How can I help you?"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="align-self: flex-start; cursor: pointer;">Send Message</button>
+      </form>
     </section>
 
     <footer>
-      <p>&copy; 2026 That Kafeeling.</p>
+      <p>&copy; 2026 That Kafeeling. Built with precision & AI-assisted workflows.</p>
     </footer>
   </div>
 
