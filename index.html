@@ -6,8 +6,10 @@
   <title>Oloo Otieno | AI-Native Product Engineer</title>
   <style>
     :root {
+      --bg-primary: #0f172a;
       --bg: #0f172a;
       --card-bg: #1e293b;
+      --text-primary: #f8fafc;
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
       --accent: #38bdf8;
@@ -18,9 +20,9 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: var(--bg);
-      color: var(--text-main);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
       line-height: 1.6;
       padding: 2rem 1rem;
     }
@@ -30,24 +32,61 @@
       margin: 0 auto;
     }
 
+    /* Enhanced Header & Hero Section */
     header {
       margin-bottom: 3rem;
       border-bottom: 1px solid var(--border);
       padding-bottom: 2rem;
+      animation: fadeInDown 0.6s ease-out;
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .profile-avatar {
       width: 80px;
       height: 80px;
       border-radius: 50%;
-      border: 2px solid var(--accent);
-      margin-bottom: 1rem;
+      border: 3px solid var(--accent);
+      margin-bottom: 1.5rem;
       object-fit: cover;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    h1 { font-size: 2.25rem; font-weight: 800; color: var(--text-main); }
-    .subtitle { font-size: 1.25rem; color: var(--accent); margin-top: 0.25rem; font-weight: 600; }
-    .bio-lead { margin-top: 1rem; color: var(--text-muted); font-size: 1.05rem; }
+    .profile-avatar:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .subtitle {
+      font-size: 1.25rem;
+      color: var(--accent);
+      margin-top: 0.25rem;
+      font-weight: 600;
+    }
+
+    .bio-lead {
+      margin-top: 1rem;
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
 
     .nav-links {
       display: flex;
@@ -65,10 +104,16 @@
       text-decoration: none;
       border: 1px solid var(--border);
       font-size: 0.9rem;
+      font-weight: 500;
       transition: all 0.2s ease;
+      cursor: pointer;
     }
 
-    .btn:hover { border-color: var(--accent); color: var(--accent); }
+    .btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
 
     .btn-primary {
       background-color: var(--accent);
@@ -80,51 +125,131 @@
     .btn-primary:hover {
       background-color: var(--accent-hover);
       color: #ffffff;
+      box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
     }
 
-    section { margin-bottom: 3rem; }
+    /* Section Styling */
+    section {
+      margin-bottom: 3rem;
+      animation: fadeIn 0.6s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
     h2 {
-      font-size: 1.5rem;
+      font-size: 1.75rem;
       border-bottom: 2px solid var(--accent);
       display: inline-block;
-      margin-bottom: 1.5rem;
-      padding-bottom: 0.25rem;
+      margin-bottom: 2rem;
+      padding-bottom: 0.5rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
     }
 
-    .grid { display: grid; gap: 1.5rem; }
+    .grid {
+      display: grid;
+      gap: 1.5rem;
+    }
 
+    /* Card Enhancements */
     .card {
       background-color: var(--card-bg);
       border: 1px solid var(--border);
       border-radius: 8px;
       padding: 1.5rem;
-      transition: transform 0.2s ease;
+      transition: all 0.3s ease;
+      overflow: hidden;
+      position: relative;
     }
 
-    .card:hover { transform: translateY(-2px); }
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+      box-shadow: 0 8px 24px rgba(56, 189, 248, 0.1);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
 
     .card-img {
       width: 100%;
-      height: 180px;
+      height: 200px;
       object-fit: cover;
       border-radius: 6px;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
       border: 1px solid var(--border);
+      transition: transform 0.3s ease;
     }
 
-    .card h3 { font-size: 1.25rem; color: var(--accent); }
-    .card .tagline { font-style: italic; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.75rem; }
-    .card p { font-size: 0.95rem; margin-bottom: 1rem; }
+    .card:hover .card-img {
+      transform: scale(1.02);
+    }
 
-    .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
-    .tag {
-      background-color: rgba(56, 189, 248, 0.1);
+    .card h3 {
+      font-size: 1.5rem;
       color: var(--accent);
-      padding: 0.2rem 0.6rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+
+    .card .tagline {
+      font-style: italic;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      margin-bottom: 1.25rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+
+    /* Tags Styling */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .tag {
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.15), rgba(56, 189, 248, 0.05));
+      color: var(--accent);
+      padding: 0.35rem 0.75rem;
       border-radius: 4px;
       font-size: 0.8rem;
       font-weight: 500;
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      transition: all 0.2s ease;
+    }
+
+    .tag:hover {
+      background: rgba(56, 189, 248, 0.2);
+      border-color: var(--accent);
     }
 
     .project-links {
@@ -133,31 +258,55 @@
     }
 
     .btn-sm {
-      padding: 0.35rem 0.75rem;
+      padding: 0.4rem 0.85rem;
       font-size: 0.8rem;
+      border-radius: 5px;
     }
 
+    /* Skills Section */
     .skills-list {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1rem;
+      gap: 1.5rem;
     }
 
     .skill-category {
-      background-color: var(--card-bg);
-      padding: 1rem;
-      border-radius: 6px;
-      border: 1px solid var(--border);
-    }
-
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      background-color: var(--card-bg);
+      background: linear-gradient(135deg, var(--card-bg), rgba(30, 41, 59, 0.5));
       padding: 1.5rem;
       border-radius: 8px;
       border: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+
+    .skill-category:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 16px rgba(56, 189, 248, 0.05);
+    }
+
+    .skill-category h4 {
+      color: var(--accent);
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+    }
+
+    .skill-category p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* Contact Form */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      background: linear-gradient(135deg, var(--card-bg), rgba(30, 41, 59, 0.5));
+      padding: 2rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      animation: fadeIn 0.6s ease-out;
     }
 
     .form-group {
@@ -166,26 +315,72 @@
       gap: 0.5rem;
     }
 
+    .form-group label {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
     .form-input {
-      background-color: var(--bg);
+      background-color: var(--bg-primary);
       border: 1px solid var(--border);
       color: var(--text-main);
-      padding: 0.75rem;
+      padding: 0.85rem;
       border-radius: 6px;
       font-family: inherit;
+      font-size: 1rem;
+      transition: all 0.2s ease;
     }
 
     .form-input:focus {
       outline: none;
       border-color: var(--accent);
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.2);
+      background-color: rgba(56, 189, 248, 0.02);
     }
 
+    textarea.form-input {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    /* Footer */
     footer {
       text-align: center;
       color: var(--text-muted);
       font-size: 0.9rem;
       border-top: 1px solid var(--border);
-      padding-top: 1.5rem;
+      padding-top: 2rem;
+      margin-top: 3rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 640px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      .skills-list {
+        grid-template-columns: 1fr;
+      }
+
+      .card h3 {
+        font-size: 1.25rem;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
     }
   </style>
 </head>
@@ -209,7 +404,7 @@
     <section id="about">
       <h2>About Me</h2>
       <p>
-        I am a clinician turned AI-native product engineer, bridging the gap between frontline healthcare needs and technical execution. Coming from a medical background with zero traditional engineering roots, I leverage modern AI-assisted workflows, prompt orchestration, and rapid prototyping to build reliable, accessible, and high-impact digital health solutions that serve real-world communities.
+        I am a clinician turned AI-native product engineer, bridging the gap between frontline healthcare needs and technical execution. Coming from a medical background with zero traditional engineer[...]
       </p>
     </section>
 
@@ -248,7 +443,7 @@
           <img src="assets/dawapop.jpg" alt="DawaPop Logo" class="card-img" />
           <h3><a href="https://dawapop.ai.studio" style="color:inherit; text-decoration:none;">DawaPop</a></h3>
           <div class="tagline">AI-Powered Emergency Medication Marketplace</div>
-          <p>Designed and built an emergency medication platform connecting patients to critical supplies, reducing drug search times while integrating M-PESA escrow payments and real-time logistical tracking.</p>
+          <p>Designed and built an emergency medication platform connecting patients to critical supplies, reducing drug search times while integrating M-PESA escrow payments and real-time logistical [...]
           <div class="tags">
             <span class="tag">TypeScript</span>
             <span class="tag">M-PESA Integration</span>
@@ -264,7 +459,7 @@
           <img src="assets/dadaspace.jpg" alt="dadaspace-preview" class="card-img" />
           <h3><a href="https://dadaspace.lovable.app" style="color:inherit; text-decoration:none;">DadaSpace</a></h3>
           <div class="tagline">Accessible Multilingual Cycle Tracking Health Platform</div>
-          <p>Developed an accessible life cycle tracking (menstruation, pregnancy, and menopause) web application for women featuring native language audio guidance (Kiswahili, Hausa, Amharic, isiZulu, Yoruba) and privacy-first local data handling.</p>
+          <p>Developed an accessible life cycle tracking (menstruation, pregnancy, and menopause) web application for women featuring native language audio guidance (Kiswahili, Hausa, Amharic, isiZulu[...]
           <div class="tags">
             <span class="tag">TypeScript</span>
             <span class="tag">Multilingual Audio</span>
@@ -280,7 +475,7 @@
           <img src="assets/right2sight.jpg" alt="my-steps Preview" class="card-img" />
           <h3><a href="https://right2sight.org" style="color:inherit; text-decoration:none;">Right 2 Sight</a></h3>
           <div class="tagline">Eye Specialist & Rehabilitation Healthcare Platform</div>
-          <p>Full-stack web platform for Right to Sight Center in Kenya featuring online appointment scheduling, optical product catalogs, symptom checkers, and an embedded AI eye care chat assistant.</p>
+          <p>Full-stack web platform for Right to Sight Center in Kenya featuring online appointment scheduling, optical product catalogs, symptom checkers, and an embedded AI eye care chat assistant.[...]
           <div class="tags">
             <span class="tag">TypeScript</span>
             <span class="tag">Healthcare Tech</span>
@@ -298,16 +493,16 @@
       <h2>Get In Touch</h2>
       <form action="https://formspree.io/f/your-form-id" method="POST" class="contact-form">
         <div class="form-group">
-          <label for="name" style="font-size:0.9rem; color:var(--text-muted);">Name</label>
+          <label for="name">Name</label>
           <input type="text" id="name" name="name" class="form-input" required placeholder="Your name">
         </div>
         <div class="form-group">
-          <label for="email" style="font-size:0.9rem; color:var(--text-muted);">Email</label>
+          <label for="email">Email</label>
           <input type="email" id="email" name="email" class="form-input" required placeholder="Your.email@example.com">
         </div>
         <div class="form-group">
-          <label for="message" style="font-size:0.9rem; color:var(--text-muted);">Message</label>
-          <textarea id="message" name="message" rows="4" class="form-input" required placeholder="How can I help you?"></textarea>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" class="form-input" required placeholder="How can I help you?"></textarea>
         </div>
         <button type="submit" class="btn btn-primary" style="align-self: flex-start; cursor: pointer;">Send Message</button>
       </form>
