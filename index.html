@@ -403,40 +403,48 @@
 
     <section id="about">
       <h2>About Me</h2>
-        <p>
-          I am a clinician turned AI-native product engineer, bridging the gap between frontline healthcare needs and technical execution. Coming from a medical background with zero traditional engineering experience, I leverage modern AI workflows to rapidly design, build, and deploy production-ready applications.
-        </p>
+        <details open>
+          <summary style="cursor: pointer; font-size: 1.5rem; font-weight: bold;">About Me</summary>
+          <p style="margin-top: 1rem;">
+            I am a clinician turned AI-native product engineer, bridging the gap between frontline healthcare needs and technical execution. Coming from a medical background with zero traditional engineering experience, I leverage modern AI workflows to rapidly design, build, and deploy production-ready applications.
+          </p>
+        </details>
     </section>
 
     <section id="capabilities">
       <h2>Capabilities & Stack</h2>
-      <div class="skills-list">
-        <div class="skill-category">
-          <h4>Domain & Clinical Perspective</h4>
-          <p>Healthcare Workflow Design, Patient Advocacy, Regulatory Compliance (PPB/ODPC), Accessible UX</p>
-        </div>
-        <div class="skill-category">
-          <h4>Development Style</h4>
-          <p>AI-Assisted Rapid Engineering, Prompt Orchestration, Rapid Prototyping</p>
-        </div>
-        <div class="skill-category">
-          <h4>Backend & APIs</h4>
-          <p>Python 3, FastAPI, Uvicorn, Pydantic Schemas, Webhooks, RESTful APIs</p>
-        </div>
-        <div class="skill-category">
-          <h4>Frontend & Real-Time</h4>
-          <p>TypeScript, Server-Sent Events (SSE), Accessible & Multilingual UI Design</p>
-        </div>
-        <div class="skill-category">
-          <h4>Testing & Ops</h4>
-          <p>Pytest, HTTPX, Vitest, GitHub Codespaces, Git, Cloud Run Containers</p>
-        </div>
-      </div>
+        <details>
+          <summary style="cursor: pointer; font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem;">Capabilities & Stack</summary>
+          <div class="skills-list">
+            <div class="skill-category">
+              <h4>Domain & Clinical Perspective</h4>
+              <p>Healthcare Workflow Design, Patient Advocacy, Regulatory Compliance (PPB/ODPC), Accessible UX</p>
+            </div>
+            <div class="skill-category">
+              <h4>Development Style</h4>
+              <p>AI-Assisted Rapid Engineering, Prompt Orchestration, Rapid Prototyping</p>
+            </div>
+            <div class="skill-category">
+              <h4>Backend & APIs</h4>
+              <p>Python 3, FastAPI, Uvicorn, Pydantic Schemas, Webhooks, RESTful APIs</p>
+            </div>
+            <div class="skill-category">
+              <h4>Frontend & Real-Time</h4>
+              <p>TypeScript, Server-Sent Events (SSE), Accessible & Multilingual UI Design</p>
+            </div>
+            <div class="skill-category">
+              <h4>Testing & Ops</h4>
+              <p>Pytest, HTTPX, Vitest, GitHub Codespaces, Git, Cloud Run Containers</p>
+            </div>
+          </div>
+        </details>
     </section>
 
     <section id="projects">
       <h2>Featured Projects</h2>
-      <div class="grid">
+        <details>
+          <summary style="cursor: pointer; font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem;">Featured Projects</summary>
+        <div class="projects-grid">
         
         <!-- Card 1: DawaPop -->
         <div class="card">
@@ -448,64 +456,71 @@
             <span class="tag">TypeScript</span>
             <span class="tag">M-PESA Integration</span>
             <span class="tag">Real-Time Tracking</span>
-          </div>
+        </div>
           <div class="project-links">
             <a href="https://dawapop.ai.studio" class="btn btn-sm" target="_blank">🌐 Live Demo</a>
           </div>
         </div>
 
         <!-- Card 2: dadaspace-app -->
-        <div class="card">
-          <img src="assets/dadaspace.jpg" alt="dadaspace-preview" class="card-img" />
-          <h3><a href="https://dadaspace.lovable.app" style="color:inherit; text-decoration:none;">DadaSpace</a></h3>
-          <div class="tagline">Accessible Multilingual Cycle Tracking Health Platform</div>
-          <p>Developed an accessible life cycle tracking (menstruation, pregnancy, and menopause) web application for women featuring native language audio guidance (Kiswahili, Hausa, Amharic, isiZulu[...]
-          <div class="tags">
-            <span class="tag">TypeScript</span>
-            <span class="tag">Multilingual Audio</span>
-            <span class="tag">Privacy-First</span>
+          <div class="card">
+              <img src="assets/dadaspace.jpg" alt="dadaspace-preview" class="card-img" />
+            <h3><a href="https://dadaspace.lovable.app" style="color:inherit; text-decoration:none;">DadaSpace</a></h3>
+            <div class="tagline">Accessible Multilingual Cycle Tracking Health Platform</div>
+              <p>Developed an accessible life cycle tracking (menstruation, pregnancy, and menopause) web application for women featuring native language audio guidance (Kiswahili, Hausa, Amharic, isiZulu[...]
+              <div class="tags">
+                <span class="tag">TypeScript</span>
+                <span class="tag">Multilingual Audio</span>
+                <span class="tag">Privacy-First</span>
+              </div>
+            <div class="project-links">
+              <a href="https://dadaspace.lovable.app" class="btn btn-sm" target="_blank">🌐 Live Demo</a>
+            </div>
           </div>
-          <div class="project-links">
-            <a href="https://dadaspace.lovable.app" class="btn btn-sm" target="_blank">🌐 Live Demo</a>
-          </div>
-        </div>
 
         <!-- Card 3: my-steps -->
-        <div class="card">
-          <img src="assets/right2sight.jpg" alt="my-steps Preview" class="card-img" />
-          <h3><a href="https://right2sight.org" style="color:inherit; text-decoration:none;">Right 2 Sight</a></h3>
-          <div class="tagline">Eye Specialist & Rehabilitation Healthcare Platform</div>
-          <p>Full-stack web platform for Right to Sight Center in Kenya featuring online appointment scheduling, optical product catalogs, symptom checkers, and an embedded AI eye care chat assistant.[...]
-          <div class="tags">
-            <span class="tag">TypeScript</span>
-            <span class="tag">Healthcare Tech</span>
-            <span class="tag">AI Chat Assistant</span>
+          <div class="card">
+              <img src="assets/right2sight.jpg" alt="my-steps Preview" class="card-img" />
+            <h3><a href="https://right2sight.org" style="color:inherit; text-decoration:none;">Right 2 Sight</a></h3>
+            <div class="tagline">Eye Specialist & Rehabilitation Healthcare Platform</div>
+              <p>Full-stack web platform for Right to Sight Center in Kenya featuring online appointment scheduling, optical product catalogs, symptom checkers, and an embedded AI eye care chat assistant.[...]
+            <div class="tags">
+              <span class="tag">TypeScript</span>
+              <span class="tag">Healthcare Tech</span>
+              <span class="tag">AI Chat Assistant</span>
+            </div>
+              <div class="project-links">
+              <a href="https://right2sight.org" class="btn btn-sm" target="_blank">🌐 Live Demo</a>
+            </div>
           </div>
-          <div class="project-links">
-            <a href="https://right2sight.org" class="btn btn-sm" target="_blank">🌐 Live Demo</a>
-          </div>
-        </div>
 
-      </div>
+        </div>
+      </details>
     </section>
 
-    <section id="contact">
-      <h2>Get In Touch</h2>
-      <form action="https://formspree.io/f/your-form-id" method="POST" class="contact-form">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" class="form-input" required placeholder="Your name">
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" class="form-input" required placeholder="Your.email@example.com">
-        </div>
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" class="form-input" required placeholder="How can I help you?"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary" style="align-self: flex-start; cursor: pointer;">Send Message</button>
-      </form>
+      <section id="contact">
+        <h2>Get In Touch</h2>
+        <details>
+          <summary style="cursor: pointer; font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem;">Get In Touch</summary>
+          <p style="margin-top: 1rem;">
+            Interested in collaborating or discussing healthcare tech? Feel free to reach out via email or GitHub.
+          </p>
+        <form action="https://formspree.io/f/your-form-id" method="POST" class="contact-form">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" class="form-input" required placeholder="Your name">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" class="form-input" required placeholder="Your.email@example.com">
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" class="form-input" required placeholder="How can I help you?"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="align-self: flex-start; cursor: pointer;">Send Message</button>
+        </form>
+      </details>
     </section>
 
     <footer>
