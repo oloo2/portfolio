@@ -370,9 +370,14 @@
       border-radius: 4px;
     }
 
-    /* Hide native markers across browsers */
-    summary::-webkit-details-marker { display: none; }
-    summary::marker { color: transparent; }
+    /* Remove default disclosure triangles across all browsers */
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::marker {
+      display: none;
+    }
 
     /* Make the h2 inside summary inherit the heading styles cleanly */
     summary > h2 {
