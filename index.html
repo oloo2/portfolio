@@ -392,20 +392,6 @@
       vertical-align: middle;
     }
 
-    /* Add a custom chevron before the heading for affordance */
-    summary::before {
-        content: '\25B6'; /* black right-pointing triangle */ 
-        display: inline-block; 
-        margin-right: 0.6rem; 
-        transform-origin: center; 
-        transition: transform 0.2s ease; 
-        color: var(--accent); 
-        font-size: 0.9rem; 
-    }
-    details[open] > summary::before { 
-        transform: rotate(90deg); 
-    }
-
     /* Footer */
     footer {
       text-align: center;
