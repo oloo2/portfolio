@@ -344,6 +344,20 @@
       min-height: 120px;
     }
 
+    /* Summary / Details accessibility styles */
+    summary {
+      list-style: none;
+      cursor: pointer;
+    }
+
+    summary:focus {
+      outline: 3px solid rgba(56, 189, 248, 0.35);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
     /* Footer */
     footer {
       text-align: center;
@@ -530,5 +544,59 @@
     </footer>
   </div>
 
+  <script>
+    // Single-open behavior + accessibility helpers for <details>
+    document.addEventListener('DOMContentLoaded', () => {
+      const detailsList = Array.from(document.querySelectorAll('section details'));
+
+      detailsList.forEach((detailEl, index) => {
+        const summary = detailEl.querySelector('summary');
+        if (!summary) return;
+
+        // Ensure the details element has an id for aria-controls
+        if (!detailEl.id) detailEl.id = `details-${index + 1}`;
+
+        // Make the summary more accessible
+        summary.setAttribute('role', 'button');
+        summary.setAttribute('aria-controls', detailEl.id);
+        summary.setAttribute('aria-expanded', detailEl.open ? 'true' : 'false');
+        summary.tabIndex = 0; // ensure keyboard focusable
+
+        // When a details is toggled open, close the others (single-open behavior)
+        detailEl.addEventListener('toggle', (e) => {
+          summary.setAttribute('aria-expanded', detailEl.open ? 'true' : 'false');
+          if (detailEl.open) {
+            detailsList.forEach((other) => {
+              if (other !== detailEl && other.open) other.open = false;
+            });
+          }
+        });
+
+        // Keyboard controls: Enter/Space toggle, Up/Down to move between summaries
+        summary.addEventListener('keydown', (e) => {
+          const key = e.key;
+          if (key === 'Enter' || key === ' ' || key === 'Spacebar' || key === 'Space') {
+            e.preventDefault();
+            detailEl.open = !detailEl.open;
+            return;
+          }
+
+          if (key === 'ArrowDown' || key === 'ArrowUp') {
+            e.preventDefault();
+            const dir = key === 'ArrowDown' ? 1 : -1;
+            const nextIndex = (index + dir + detailsList.length) % detailsList.length;
+            const nextSummary = detailsList[nextIndex].querySelector('summary');
+            if (nextSummary) nextSummary.focus();
+          }
+        });
+
+        // Keep aria-expanded in sync if changed programmatically
+        const observer = new MutationObserver(() => {
+          summary.setAttribute('aria-expanded', detailEl.open ? 'true' : 'false');
+        });
+        observer.observe(detailEl, { attributes: true, attributeFilter: ['open'] });
+      });
+    });
+  </script>
 </body>
 </html>
