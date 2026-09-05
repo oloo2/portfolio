@@ -362,6 +362,8 @@
       list-style: none;
       cursor: pointer;
       padding: 0.25rem 0; /* increase click target */
+      -webkit-appearance: none; /* hide native appearance on WebKit */
+      appearance: none; /* hide native appearance where supported */
     }
 
     summary:focus {
@@ -370,12 +372,16 @@
       border-radius: 4px;
     }
 
-    /* Remove default disclosure triangles across all browsers */
+    /* Remove default disclosure triangles across browsers */
     summary::-webkit-details-marker {
       display: none;
     }
 
+    /* For browsers that support ::marker on summary */
     summary::marker {
+      content: '';
+      color: transparent;
+      font-size: 0;
       display: none;
     }
 
@@ -399,7 +405,6 @@
     details[open] > summary::before { 
         transform: rotate(90deg); 
     }
-    details[open] > summary::before { transform: rotate(90deg); }
 
     /* Footer */
     footer {
@@ -439,15 +444,7 @@
         text-align: center;
       }
     }
-    
-    /* Remove default disclosure triangles */
-    summary::-webkit-details-marker {
-      display: none;
-    }
 
-    summary::marker {
-      display: none;
-    }
   </style>
 </head>
 <body>
@@ -474,7 +471,7 @@
         </summary>
         <div style="margin-top: 1rem;">
           <p>
-            I am a clinician turned AI-native product engineer, bridging the gap between frontline healthcare needs and technical execution. Coming from a medical background with zero traditional engineering experience, I apply clinical insight to design high-impact, usable healthcare products.
+            I am a clinician turned AI-native product engineer, bridging the gap between frontline healthcare needs and technical execution. Coming from a medical background with zero traditional[...]
           </p>
         </div>
       </details>
@@ -523,7 +520,7 @@
             <img src="assets/dawapop.jpg" alt="DawaPop Logo" class="card-img" />
             <h3><a href="https://dawapop.ai.studio" style="color:inherit; text-decoration:none;">DawaPop</a></h3>
             <div class="tagline">AI-Powered Emergency Medication Marketplace</div>
-            <p>Designed and built an emergency medication platform connecting patients to critical supplies, reducing drug search times while integrating M-PESA escrow payments and real-time logistics.</p>
+            <p>Designed and built an emergency medication platform connecting patients to critical supplies, reducing drug search times while integrating M-PESA escrow payments and real-time logi[...]
             <div class="tags">
               <span class="tag">TypeScript</span>
               <span class="tag">M-PESA Integration</span>
@@ -539,7 +536,7 @@
             <img src="assets/dadaspace.jpg" alt="dadaspace-preview" class="card-img" />
             <h3><a href="https://dadaspace.lovable.app" style="color:inherit; text-decoration:none;">DadaSpace</a></h3>
             <div class="tagline">Accessible Multilingual Cycle Tracking Health Platform</div>
-            <p>Developed an accessible life cycle tracking (menstruation, pregnancy, and menopause) web application for women featuring native language audio guidance and privacy-first practices.</p>
+            <p>Developed an accessible life cycle tracking (menstruation, pregnancy, and menopause) web application for women featuring native language audio guidance and privacy-first practices.[...]
             <div class="tags">
               <span class="tag">TypeScript</span>
               <span class="tag">Multilingual Audio</span>
@@ -555,7 +552,7 @@
             <img src="assets/right2sight.jpg" alt="right2sight Preview" class="card-img" />
             <h3><a href="https://right2sight.org" style="color:inherit; text-decoration:none;">Right 2 Sight</a></h3>
             <div class="tagline">Eye Specialist & Rehabilitation Healthcare Platform</div>
-            <p>Full-stack web platform for Right to Sight Center in Kenya featuring online appointment scheduling, optical product catalogs, symptom checkers, and an embedded AI eye care chat assistant.</p>
+            <p>Full-stack web platform for Right to Sight Center in Kenya featuring online appointment scheduling, optical product catalogs, symptom checkers, and an embedded AI eye care chat ass[...]
             <div class="tags">
               <span class="tag">TypeScript</span>
               <span class="tag">Healthcare Tech</span>
