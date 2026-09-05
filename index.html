@@ -436,6 +436,15 @@
         text-align: center;
       }
     }
+    
+    /* Remove default disclosure triangles */
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::marker {
+      display: none;
+    }
   </style>
 </head>
 <body>
