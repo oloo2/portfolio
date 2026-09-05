@@ -361,6 +361,7 @@
     summary {
       list-style: none;
       cursor: pointer;
+      padding: 0.25rem 0; /* increase click target */
     }
 
     summary:focus {
@@ -372,6 +373,25 @@
     /* Hide native markers across browsers */
     summary::-webkit-details-marker { display: none; }
     summary::marker { color: transparent; }
+
+    /* Make the h2 inside summary inherit the heading styles cleanly */
+    summary > h2 {
+      margin: 0;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    /* Add a custom chevron before the heading for affordance */
+    summary::before {
+      content: '\25B6'; /* black right-pointing triangle */
+      display: inline-block;
+      margin-right: 0.6rem;
+      transform-origin: center;
+      transition: transform 0.2s ease;
+      color: var(--accent);
+      font-size: 0.9rem;
+    }
+    details[open] > summary::before { transform: rotate(90deg); }
 
     /* Footer */
     footer {
@@ -431,19 +451,23 @@
     </header>
 
     <section id="about">
-      <h2>About Me</h2>
       <details open>
-        <summary aria-label="About Me" style="cursor: pointer; font-size: 1.5rem; font-weight: bold;"></summary>
-        <p style="margin-top: 1rem;">
-          I am a clinician turned AI-native product engineer, bridging the gap between frontline healthcare needs and technical execution. Coming from a medical background with zero traditional engineering experience, I apply clinical insight to design high-impact, usable healthcare products.
-        </p>
+        <summary role="button" aria-expanded="true">
+          <h2>About Me</h2>
+        </summary>
+        <div style="margin-top: 1rem;">
+          <p>
+            I am a clinician turned AI-native product engineer, bridging the gap between frontline healthcare needs and technical execution. Coming from a medical background with zero traditional engineering experience, I apply clinical insight to design high-impact, usable healthcare products.
+          </p>
+        </div>
       </details>
     </section>
 
     <section id="capabilities">
-      <h2>Capabilities & Stack</h2>
       <details>
-        <summary aria-label="Capabilities & Stack" style="cursor: pointer; font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem;"></summary>
+        <summary role="button" aria-expanded="false">
+          <h2>Capabilities & Stack</h2>
+        </summary>
         <div class="skills-list" style="margin-top: 1rem;">
           <div class="skill-category">
             <h4>Domain & Clinical Perspective</h4>
@@ -470,9 +494,10 @@
     </section>
 
     <section id="projects">
-      <h2>Featured Projects</h2>
       <details>
-        <summary aria-label="Featured Projects" style="cursor: pointer; font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem;"></summary>
+        <summary role="button" aria-expanded="false">
+          <h2>Featured Projects</h2>
+        </summary>
 
         <div class="projects-grid" style="margin-top: 1rem;">
 
@@ -529,28 +554,31 @@
     </section>
 
     <section id="contact">
-      <h2>Get In Touch</h2>
       <details>
-        <summary aria-label="Get In Touch" style="cursor: pointer; font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem;"></summary>
-        <p style="margin-top: 1rem;">
-          Interested in collaborating or discussing healthcare tech? Feel free to reach out via email or GitHub.
-        </p>
+        <summary role="button" aria-expanded="false">
+          <h2>Get In Touch</h2>
+        </summary>
+        <div style="margin-top: 1rem;">
+          <p>
+            Interested in collaborating or discussing healthcare tech? Feel free to reach out via email or GitHub.
+          </p>
 
-        <form action="https://formspree.io/f/your-form-id" method="POST" class="contact-form" style="margin-top: 1rem;">
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" class="form-input" required placeholder="Your name" />
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" class="form-input" required placeholder="Your.email@example.com" />
-          </div>
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" class="form-input" required placeholder="How can I help you?"></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary" style="align-self: flex-start; cursor: pointer;">Send Message</button>
-        </form>
+          <form action="https://formspree.io/f/your-form-id" method="POST" class="contact-form" style="margin-top: 1rem;">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" class="form-input" required placeholder="Your name" />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" class="form-input" required placeholder="Your.email@example.com" />
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" class="form-input" required placeholder="How can I help you?"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="align-self: flex-start; cursor: pointer;">Send Message</button>
+          </form>
+        </div>
       </details>
     </section>
 
