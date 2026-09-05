@@ -344,6 +344,19 @@
       min-height: 120px;
     }
 
+    /* Accessibility helpers */
+    .sr-only {
+      position: absolute !important;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
     /* Summary / Details accessibility styles */
     summary {
       list-style: none;
@@ -356,7 +369,9 @@
       border-radius: 4px;
     }
 
+    /* Hide native markers across browsers */
     summary::-webkit-details-marker { display: none; }
+    summary::marker { color: transparent; }
 
     /* Footer */
     footer {
@@ -418,7 +433,7 @@
     <section id="about">
       <h2>About Me</h2>
       <details open>
-        <summary style="cursor: pointer; font-size: 1.5rem; font-weight: bold;">About Me</summary>
+        <summary aria-label="About Me" style="cursor: pointer; font-size: 1.5rem; font-weight: bold;"></summary>
         <p style="margin-top: 1rem;">
           I am a clinician turned AI-native product engineer, bridging the gap between frontline healthcare needs and technical execution. Coming from a medical background with zero traditional engineering experience, I apply clinical insight to design high-impact, usable healthcare products.
         </p>
@@ -428,7 +443,7 @@
     <section id="capabilities">
       <h2>Capabilities & Stack</h2>
       <details>
-        <summary style="cursor: pointer; font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem;">Capabilities & Stack</summary>
+        <summary aria-label="Capabilities & Stack" style="cursor: pointer; font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem;"></summary>
         <div class="skills-list" style="margin-top: 1rem;">
           <div class="skill-category">
             <h4>Domain & Clinical Perspective</h4>
@@ -457,7 +472,7 @@
     <section id="projects">
       <h2>Featured Projects</h2>
       <details>
-        <summary style="cursor: pointer; font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem;">Featured Projects</summary>
+        <summary aria-label="Featured Projects" style="cursor: pointer; font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem;"></summary>
 
         <div class="projects-grid" style="margin-top: 1rem;">
 
@@ -516,7 +531,7 @@
     <section id="contact">
       <h2>Get In Touch</h2>
       <details>
-        <summary style="cursor: pointer; font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem;">Get In Touch</summary>
+        <summary aria-label="Get In Touch" style="cursor: pointer; font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem;"></summary>
         <p style="margin-top: 1rem;">
           Interested in collaborating or discussing healthcare tech? Feel free to reach out via email or GitHub.
         </p>
